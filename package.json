@@ -1,0 +1,38 @@
+{
+  "name": "js.countdown",
+  "version": "0.0.1",
+  "description": "Countdown helper with vanilla Javascript for all platforms",
+  "main": "js.countdown.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EsTharian/js.countdown.git"
+  },
+  "keywords": [
+    "vanilla-countdown",
+    "countdown",
+    "react-countdown",
+    "react-native-countdown",
+    "vue-countdown",
+    "js-countdown"
+  ],
+  "author": "Muhammed Taha Ayan <tahaayan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EsTharian/js.countdown/issues"
+  },
+  "homepage": "https://github.com/EsTharian/js.countdown#readme",
+  "devDependencies": {
+    "declaration-bundler-webpack-plugin": "^1.0.3",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}

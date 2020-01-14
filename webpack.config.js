@@ -18,7 +18,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'countDown',
+    library: 'CountDown',
     libraryTarget: 'window',
     libraryExport: 'default'
   },

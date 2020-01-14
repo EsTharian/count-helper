@@ -1,6 +1,5 @@
 interface ITarget {
   datetime: Date
-  targetDOMs: object
   now: Date
   options: Options
 
@@ -26,7 +25,6 @@ interface Options {
 
 class CountDown implements ITarget {
   public datetime: Date
-  public targetDOMs: object
   public now: Date
   public options: Options
 
@@ -93,6 +91,13 @@ class CountDown implements ITarget {
   }
 
   public initialize(): NodeJS.Timeout {
+    this.now = new Date()
+    this.second()
+    this.minute()
+    this.hour()
+    this.day()
+    this.year()
+
     return setInterval(() => {
       this.now = new Date()
 
@@ -104,7 +109,7 @@ class CountDown implements ITarget {
         this.minute() === 59 && this.hour()
 
         this.hour() === 23 && this.day()
-        
+
         this.day() === 364 && this.year()
       }
     }, 1000)

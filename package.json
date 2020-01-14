@@ -1,6 +1,6 @@
 {
   "name": "@estharian/js.countdown",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Countdown helper with vanilla Javascript for all platforms",
   "main": "js.countdown.js",
   "scripts": {
@@ -27,6 +27,9 @@
   },
   "homepage": "https://github.com/EsTharian/js.countdown#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
     "declaration-bundler-webpack-plugin": "^1.0.3",
     "ts-loader": "^6.2.1",
     "tslint": "^5.20.1",

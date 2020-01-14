@@ -2,12 +2,11 @@ const path = require('path')
 
 module.exports = {
   entry: './src/index.ts',
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/,
       },
     ],
@@ -19,7 +18,7 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'CountDown',
-    libraryTarget: 'window',
+    libraryTarget: 'commonjs2',
     libraryExport: 'default'
   },
   mode: 'production',
@@ -28,5 +27,5 @@ module.exports = {
     compress: true,
     port: 9000,
     publicPath: '/assets/'
-  }
+  },
 }

@@ -62,31 +62,31 @@ class CountDown implements ITarget {
 
   public year(): number {
     const year = this.datetime.getFullYear() - this.now.getFullYear()
-    this.options.yearDOM.innerHTML = this.options.yearDOM && year.toString().padStart(2, '0')
+    if(this.options.yearDOM) this.options.yearDOM.innerHTML = year.toString().padStart(2, '0')
     return year
   }
 
   public day(): number {
     const day = Math.floor(this.fullDay() % 365)
-    this.options.dayDOM.innerHTML = this.options.dayDOM && day.toString().padStart(2, '0')
+    if(this.options.dayDOM) this.options.dayDOM.innerHTML = day.toString().padStart(2, '0')
     return day
   }
 
   public hour(): number {
     const hour = Math.floor(this.fullHour() % 24)
-    this.options.hourDOM.innerHTML = this.options.hourDOM && hour.toString().padStart(2, '0')
+    if(this.options.hourDOM) this.options.hourDOM.innerHTML = hour.toString().padStart(2, '0')
     return hour
   }
 
   public minute(): number {
     const minute = Math.floor(this.fullMinute() % 60)
-    this.options.minuteDOM.innerHTML = this.options.minuteDOM && minute.toString().padStart(2, '0')
+    if(this.options.minuteDOM) this.options.minuteDOM.innerHTML = minute.toString().padStart(2, '0')
     return minute
   }
 
   public second(): number {
     const second = Math.floor(this.fullSecond() % 60)
-    this.options.secondDOM.innerHTML = this.options.secondDOM && second.toString().padStart(2, '0')
+    if(this.options.secondDOM) this.options.secondDOM.innerHTML = second.toString().padStart(2, '0')
     return second
   }
 

@@ -1,3 +1,3 @@
-import CountDown from './dist/index.js'
+import CountDown from './src/index.js'
 
 export default CountDown

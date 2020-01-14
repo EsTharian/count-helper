@@ -1,5 +1,5 @@
 {
-  "name": "js.countdown",
+  "name": "@estharian/js.countdown",
   "version": "0.1.0",
   "description": "Countdown helper with vanilla Javascript for all platforms",
   "main": "js.countdown.js",

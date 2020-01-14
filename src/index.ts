@@ -9,11 +9,11 @@ interface ITarget {
   fullHour(dom: HTMLElement): number
   fullMinute(dom: HTMLElement): number
   fullSecond(dom: HTMLElement): number
-  year(dom: HTMLElement): string
-  day(dom: HTMLElement): string
-  hour(dom: HTMLElement): string
-  minute(dom: HTMLElement): string
-  second(dom: HTMLElement): string
+  year(dom: HTMLElement): number
+  day(dom: HTMLElement): number
+  hour(dom: HTMLElement): number
+  minute(dom: HTMLElement): number
+  second(dom: HTMLElement): number
 }
 
 interface Options {
@@ -62,39 +62,50 @@ class CountDown implements ITarget {
     return Math.floor((this.datetime.getTime() - this.now.getTime()) / 1000)
   }
 
-  public year(): string {
+  public year(): number {
     const year = this.datetime.getFullYear() - this.now.getFullYear()
-    return year.toString().padStart(2, '0')
+    this.options.yearDOM.innerHTML = this.options.yearDOM && year.toString().padStart(2, '0')
+    return year
   }
 
-  public day(): string {
-    return Math.floor(this.fullDay() % 365).toString().padStart(2, '0')
+  public day(): number {
+    const day = Math.floor(this.fullDay() % 365)
+    this.options.dayDOM.innerHTML = this.options.dayDOM && day.toString().padStart(2, '0')
+    return day
   }
 
-  public hour(): string {
-    return Math.floor(this.fullHour() % 24).toString().padStart(2, '0')
+  public hour(): number {
+    const hour = Math.floor(this.fullHour() % 24)
+    this.options.hourDOM.innerHTML = this.options.hourDOM && hour.toString().padStart(2, '0')
+    return hour
   }
 
-  public minute(): string {
-    return Math.floor(this.fullMinute() % 60).toString().padStart(2, '0')
+  public minute(): number {
+    const minute = Math.floor(this.fullMinute() % 60)
+    this.options.minuteDOM.innerHTML = this.options.minuteDOM && minute.toString().padStart(2, '0')
+    return minute
   }
 
-  public second(): string {
-    return Math.floor(this.fullSecond() % 60).toString().padStart(2, '0')
+  public second(): number {
+    const second = Math.floor(this.fullSecond() % 60)
+    this.options.secondDOM.innerHTML = this.options.secondDOM && second.toString().padStart(2, '0')
+    return second
   }
 
   public initialize(): NodeJS.Timeout {
     return setInterval(() => {
       this.now = new Date()
 
-      console.log(this.second())
+      this.second()
 
-      if(this.second() === '59') {
-        console.log(this.minute())
+      if(this.second() === 59) {
+        this.minute()
 
-        this.options.hourDOM.innerHTML = this.minute() === '59' && this.hour()
-        this.hour() === '23' && console.log(this.day())
-        this.day() === '364' && console.log(this.year())
+        this.minute() === 59 && this.hour()
+
+        this.hour() === 23 && this.day()
+        
+        this.day() === 364 && this.year()
       }
     }, 1000)
   }

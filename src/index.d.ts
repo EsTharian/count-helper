@@ -25,7 +25,7 @@ declare class CountDown implements ITarget {
     datetime: Date;
     now: Date;
     options: Options;
-    constructor(datetime: string | number | Date, options: Options);
+    constructor(datetime: string | Date, options: Options);
     monthDays(date: Date): number;
     fullYear(): number;
     fullDay(): number;

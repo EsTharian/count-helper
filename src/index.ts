@@ -28,10 +28,11 @@ class CountDown implements ITarget {
   public now: Date
   public options: Options
 
-  constructor(datetime: string | number | Date, options: Options) {
+  constructor(datetime: string | Date, options: Options) {
     this.options = options
 
-    this.datetime = typeof datetime === 'number' || typeof datetime === 'string' ? new Date(datetime) : datetime
+    this.datetime = typeof datetime === 'number' || typeof datetime === 'string' ? new Date(datetime.replace(/ /g,"T")) : datetime
+    
     this.now = new Date()
   }
 

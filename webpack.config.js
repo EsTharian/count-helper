@@ -18,7 +18,7 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'src'),
     library: 'CountDown',
-    libraryTarget: 'window',
+    libraryTarget: 'commonjs2',
     libraryExport: 'default'
   },
   mode: 'production',

@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/**********************************************************************************************************************/
 interface ITarget {
     datetime: Date;
     now: Date;
@@ -15,17 +16,19 @@ interface ITarget {
     second(dom: HTMLElement): number;
 }
 interface Options {
-    yearDOM: HTMLElement;
-    dayDOM: HTMLElement;
-    hourDOM: HTMLElement;
-    minuteDOM: HTMLElement;
-    secondDOM: HTMLElement;
+    yearDOM: HTMLElement | NodeList | Node;
+    dayDOM: HTMLElement | NodeList | Node;
+    hourDOM: HTMLElement | NodeList | Node;
+    minuteDOM: HTMLElement | NodeList | Node;
+    secondDOM: HTMLElement | NodeList | Node;
 }
 declare class CountDown implements ITarget {
     datetime: Date;
     now: Date;
     options: Options;
     constructor(datetime: string | Date, options: Options);
+    stringify(counted: number): string;
+    render(dom: any, value: any): void;
     monthDays(date: Date): number;
     fullYear(): number;
     fullDay(): number;

@@ -1,4 +1,4 @@
-export interface ITarget {
+export interface ICountDown {
   datetime: Date
   options: IOptions
 

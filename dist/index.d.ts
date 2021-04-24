@@ -3,6 +3,7 @@ import { ITarget, IOptions } from './Interfaces';
 export declare class CountDown implements ITarget {
     datetime: Date;
     options: IOptions;
+    start: number;
     constructor(datetime: string | Date, options: IOptions);
     stringify(counted: number): string;
     render(dom: any, value: any): void;
@@ -17,6 +18,6 @@ export declare class CountDown implements ITarget {
     hour(now: Date): number;
     minute(now: Date): number;
     second(now: Date): number;
-    initialize(): number;
+    initialize(time: number): void;
 }
 //# sourceMappingURL=index.d.ts.map

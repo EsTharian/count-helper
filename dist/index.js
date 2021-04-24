@@ -9,6 +9,7 @@ exports.CountDown = void 0;
 require("./polyfills");
 var CountDown = /** @class */ (function () {
     function CountDown(datetime, options) {
+        this.start = document.timeline.currentTime;
         this.options = options;
         // If datetime type is "yyyy-mm-dd hh:mm", replace space with "T"
         this.datetime = typeof datetime === 'string'
@@ -65,18 +66,22 @@ var CountDown = /** @class */ (function () {
         this.render(this.options.secondDOM, second);
         return second;
     };
-    CountDown.prototype.initialize = function () {
-        var _this = this;
-        var now = new Date();
-        var seconds = this.second(now);
-        this.minute(now);
-        this.hour(now);
-        this.day(now);
-        this.year(now);
-        var targetNext = (seconds + 1) * 1e3 + now.getTime();
-        return setInterval(function () {
-            requestAnimationFrame(_this.initialize);
-        }, targetNext - (new Date()).getTime());
+    CountDown.prototype.initialize = function (time) {
+        var self = this;
+        function recursive(time) {
+            var now = new Date();
+            var seconds = Math.round((time - self.start) / 1000);
+            self.second(now);
+            self.minute(now);
+            self.hour(now);
+            self.day(now);
+            self.year(now);
+            var targetNext = (seconds + 1) * 1e3 + self.start;
+            return setTimeout(function () {
+                requestAnimationFrame(recursive);
+            }, targetNext - performance.now());
+        }
+        recursive(this.start);
     };
     return CountDown;
 }());

@@ -1,4 +1,4 @@
-export interface ICountDown {
+export interface ICounter {
   datetime: Date
   options: IOptions
 
@@ -15,9 +15,15 @@ export interface ICountDown {
 }
 
 export interface IOptions {
-  yearDOM: HTMLElement | NodeList | Node
-  dayDOM: HTMLElement | NodeList | Node
-  hourDOM: HTMLElement | NodeList | Node
-  minuteDOM: HTMLElement | NodeList | Node
-  secondDOM: HTMLElement | NodeList | Node
+  type: string
+  fullYearDOM: NodeList | Node
+  fullDayDOM: NodeList | Node
+  fullHourDOM: NodeList | Node
+  fullMinuteDOM: NodeList | Node
+  fullSecondDOM: NodeList | Node
+  yearDOM: NodeList | Node
+  dayDOM: NodeList | Node
+  hourDOM: NodeList | Node
+  minuteDOM: NodeList | Node
+  secondDOM: NodeList | Node
 }

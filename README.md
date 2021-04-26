@@ -1,11 +1,11 @@
-# **js.countdown**
+# **count-helper**
 
-Countdown helper with vanilla JavaScript.
+Count helper with vanilla JavaScript.
 
 Here is an example of use. README will be updated on next patch.
 
 ```javascript
-import {Counter} from '@estharian/js.countdown';
+import {Counter} from 'count-helper';
 
 const counter = new Counter(new Date(2021, 3, 26), {
   fullYearDOM: document.querySelector('.js-full-year'),

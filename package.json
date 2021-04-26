@@ -1,5 +1,5 @@
 {
-  "name": "js-counter",
+  "name": "count-helper",
   "version": "2.0.0",
   "description": "Time count helper with vanilla Javascript",
   "main": "./dist/index.js",
@@ -13,22 +13,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EsTharian/js-counter.git"
+    "url": "git+https://github.com/EsTharian/count-helper.git"
   },
   "keywords": [
     "vanilla-countdown",
     "countdown",
     "js-countdown",
     "counter",
+    "time-count",
     "countup",
     "js-countup"
   ],
   "author": "Muhammed Taha Ayan <tahaayan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EsTharian/js-counter/issues"
+    "url": "https://github.com/EsTharian/count-helper/issues"
   },
-  "homepage": "https://github.com/EsTharian/js-counter#readme",
+  "homepage": "https://github.com/EsTharian/count-helper#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",

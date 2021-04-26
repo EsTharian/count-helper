@@ -16,16 +16,13 @@ module.exports = {
   },
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'src'),
-    library: 'CountDown',
-    libraryTarget: 'commonjs2',
-    libraryExport: 'default'
+    path: path.resolve(__dirname, './dist'),
+    globalObject: 'this',
+    library: {
+      name: 'Countdown',
+      type: 'umd',
+      umdNamedDefine: true
+    }
   },
-  mode: 'production',
-  devServer: {
-    contentBase: path.join(__dirname, 'example'),
-    compress: true,
-    port: 9000,
-    publicPath: '/assets/'
-  },
+  mode: process.env.NODE_ENV
 }

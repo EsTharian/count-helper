@@ -46,7 +46,7 @@ export class Counter implements ICounter {
   }
 
   fullYear(now: Date): number {
-    const fullYear = this.upDownFixer * (this.datetime.getFullYear() - now.getFullYear()) - Math.max(0, this.upDownFixer);
+    const fullYear = Math.floor((this.fullDay(now) / 365));
     this.render(this.options.fullYearDOM, fullYear);
     return fullYear;
   }
@@ -112,11 +112,27 @@ export class Counter implements ICounter {
       const now = new Date();
 
       const seconds = Math.round((time - self.start) / 1000);
-      self.second(now);
-      self.minute(now);
-      self.hour(now);
-      self.day(now);
-      self.year(now);
+
+      if (self.options.secondDOM || self.options.fullSecondDOM) {
+        self.second(now);
+      }
+
+      if (self.options.minuteDOM || self.options.fullMinuteDOM) {
+        self.minute(now);
+      }
+
+      if (self.options.hourDOM || self.options.fullHourDOM) {
+        self.hour(now);
+      }
+
+      if (self.options.dayDOM || self.options.fullDayDOM) {
+        self.day(now);
+      }
+
+      if (self.options.yearDOM || self.options.fullYearDOM) {
+        self.year(now);
+      }
+
       const targetNext = (seconds + 1) * 1e3 + self.start;
 
       if (!self.stop) {

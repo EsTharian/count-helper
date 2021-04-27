@@ -39,7 +39,7 @@ var Counter = /** @class */ (function () {
         }
     };
     Counter.prototype.fullYear = function (now) {
-        var fullYear = this.upDownFixer * (this.datetime.getFullYear() - now.getFullYear()) - Math.max(0, this.upDownFixer);
+        var fullYear = Math.floor((this.fullDay(now) / 365));
         this.render(this.options.fullYearDOM, fullYear);
         return fullYear;
     };

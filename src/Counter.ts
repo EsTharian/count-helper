@@ -133,6 +133,14 @@ export class Counter implements ICounter {
         self.year(now);
       }
 
+      const fullSecond = new CustomEvent('countdown.current', {
+        detail: self.fullSecond(now)
+      });
+
+      self.options.fullSecondDOM && ('length' in self.options.fullSecondDOM
+        ? [...self.options.fullSecondDOM].forEach((d) => d.dispatchEvent(fullSecond))
+        : self.options.fullSecondDOM.dispatchEvent(fullSecond));
+
       const targetNext = (seconds + 1) * 1e3 + self.start;
 
       if (!self.stop) {

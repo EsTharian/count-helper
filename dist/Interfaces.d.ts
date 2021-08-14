@@ -18,7 +18,7 @@ export interface IOptions {
     fullDayDOM: NodeList | Node;
     fullHourDOM: NodeList | Node;
     fullMinuteDOM: NodeList | Node;
-    fullSecondDOM: NodeList | Node;
+    fullSecondDOM: Node | Array<any>;
     yearDOM: NodeList | Node;
     dayDOM: NodeList | Node;
     hourDOM: NodeList | Node;

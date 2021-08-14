@@ -93,11 +93,27 @@ var Counter = /** @class */ (function () {
         function recursive(time) {
             var now = new Date();
             var seconds = Math.round((time - self.start) / 1000);
-            self.second(now);
-            self.minute(now);
-            self.hour(now);
-            self.day(now);
-            self.year(now);
+            if (self.options.secondDOM || self.options.fullSecondDOM) {
+                self.second(now);
+            }
+            if (self.options.minuteDOM || self.options.fullMinuteDOM) {
+                self.minute(now);
+            }
+            if (self.options.hourDOM || self.options.fullHourDOM) {
+                self.hour(now);
+            }
+            if (self.options.dayDOM || self.options.fullDayDOM) {
+                self.day(now);
+            }
+            if (self.options.yearDOM || self.options.fullYearDOM) {
+                self.year(now);
+            }
+            var fullSecond = new CustomEvent('countdown.current', {
+                detail: self.fullSecond(now)
+            });
+            self.options.fullSecondDOM && ('length' in self.options.fullSecondDOM
+                ? __spreadArray([], self.options.fullSecondDOM).forEach(function (d) { return d.dispatchEvent(fullSecond); })
+                : self.options.fullSecondDOM.dispatchEvent(fullSecond));
             var targetNext = (seconds + 1) * 1e3 + self.start;
             if (!self.stop) {
                 setTimeout(function () {
